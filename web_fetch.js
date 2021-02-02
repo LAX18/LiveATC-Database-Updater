@@ -1,6 +1,6 @@
 const request = require('request');
 const cheerio = require('cheerio');
-const { exec } = require("child_process");
+const sortJson = require('sort-json');
 const io = require('@pm2/io')
 const airport_json = require('json/us_airports.json')
 var fs = require("fs")
@@ -103,5 +103,6 @@ for (airport in airport_json) {
 
 function writeFile() {
     fs.writeFileSync('liveatc.json', JSON.stringify(json, 0, 4))
+    sortJson.overwrite('liveatc.json');
     console.log("File Written")
 }
