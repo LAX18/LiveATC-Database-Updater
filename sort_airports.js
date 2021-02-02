@@ -1,4 +1,4 @@
-const airport_json = require('../../json/world_airports.json')
+const airport_json = require('json/world_airports.json')
 var fs = require("fs")
 var json = {}
 var progress = 0
@@ -25,7 +25,7 @@ for (airport in airport_json) {
 
 setTimeout(function() {
     if (progress === Object.keys(airport_json).length) {
-        fs.writeFileSync('../../json/us_airports.json', JSON.stringify(json, 0, 4))
+        fs.writeFileSync('json/us_airports.json', JSON.stringify(json, 0, 4))
         console.log("File Written!")
         return;
     }
