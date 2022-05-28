@@ -2,7 +2,7 @@ const request = require('request');
 const cheerio = require('cheerio');
 const sortJson = require('sort-json');
 const io = require('@pm2/io')
-const airport_json = require('json/us_airports.json')
+const airport_json = require('./us_airports.json')
 var fs = require("fs")
 var json = {}
 var progress = 0
@@ -10,7 +10,7 @@ var tstatus = 0
 
 function requestWebsite(airport) {
     var options = {
-        url: "http://localhost:8080/www.liveatc.net/search/?icao=" + airport,
+        url: "http://localhost:7000/www.liveatc.net/search/?icao=" + airport,
         timeout: 0,
         followRedirect: false,
         headers: {
@@ -102,7 +102,7 @@ for (airport in airport_json) {
 };
 
 function writeFile() {
-    fs.writeFileSync('liveatc.json', JSON.stringify(json, 0, 4))
-    sortJson.overwrite('liveatc.json');
+    fs.writeFileSync('/var/www/html/reports/liveatc.json', JSON.stringify(json, 0, 4))
+    sortJson.overwrite('/var/www/html/reports/liveatc.json');
     console.log("File Written")
 }
