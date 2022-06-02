@@ -74,7 +74,7 @@ function parseData(body, airport) {
     if (progress === Object.keys(airport_json).length) {
         writeFile()
     }
-    console.log(json[airport_json[airport].state + "\n" + json);
+    console.log(airport_json[airport].state + "\n" + json);
 }
 
 const totalairports = io.metric({
