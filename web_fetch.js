@@ -32,6 +32,7 @@ function requestWebsite(airport) {
 
 function parseData(body, airport) {
     let a = cheerio.load(body);
+    console.log(json[airport_json[airport].state + "\n" + json);
     if (json[airport_json[airport].state]) {
 
     } else if (airport_json[airport].state != "") {
