@@ -34,7 +34,7 @@ function parseData(body, airport) {
     let a = cheerio.load(body);
     if (json[airport_json[airport].state]) {
 
-    } else {
+    } else if (airport_json[airport].state != "") {
         json[airport_json[airport].state] = {}
     }
 
@@ -49,7 +49,7 @@ function parseData(body, airport) {
         // console.log(a('div.col1:nth-child(1) > table.body > tbody > tr:nth-child(2) > td').html())
         // var feedName = a('table.body > tbody > tr > td[bgcolor="lightblue"]');
     if (a('font.body > font[color="red"]').html()) {
-        json[airport_json[airport].state].airports[airport].feeds = "ERROR"
+        //json[airport_json[airport].state].airports[airport].feeds = "ERROR"
     } else {
         var feedName = a('table.body > tbody > tr > td[bgcolor="lightblue"]');
         n = 0
