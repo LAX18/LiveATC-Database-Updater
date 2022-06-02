@@ -32,7 +32,6 @@ function requestWebsite(airport) {
 
 function parseData(body, airport) {
     let a = cheerio.load(body);
-    console.log(json[airport_json[airport].state + "\n" + json);
     if (json[airport_json[airport].state]) {
 
     } else if (airport_json[airport].state != "") {
@@ -75,6 +74,7 @@ function parseData(body, airport) {
     if (progress === Object.keys(airport_json).length) {
         writeFile()
     }
+    console.log(json[airport_json[airport].state + "\n" + json);
 }
 
 const totalairports = io.metric({
