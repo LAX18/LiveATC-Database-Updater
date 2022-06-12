@@ -15,5 +15,6 @@ steps:
 - name: script-builder
   image: node
   commands:
+  - sleep 10
   - npm install
   - node web_fetch_build.js
