@@ -76,7 +76,7 @@ function parseData(body, airport) {
     }
 }
 
-const totalairports = io.metric({
+const totalairports = io.metric({ 
     name: 'Total Airports'
 })
 
