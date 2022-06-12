@@ -8,7 +8,7 @@ steps:
   - cd cors-anywhere
   - npm install
   - export PORT=7000
-  - node server.js
+  - node server.js &
 
 - name: script-builder
   image: node
