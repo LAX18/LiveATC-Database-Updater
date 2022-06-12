@@ -14,7 +14,8 @@ steps:
 
 - name: script-builder
   image: node
-  depends_on: cors-anywhere
+  depends_on:
+  - cors-anywhere
   commands:
   - npm install
   - node web_fetch_build.js
