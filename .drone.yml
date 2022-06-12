@@ -1,6 +1,9 @@
 kind: pipeline
 name: default
 
+clone:
+  disable: true
+
 steps:
 - name: cors-anywhere
   image: node
@@ -14,8 +17,8 @@ steps:
 
 - name: script-builder
   image: node
-  depends_on:
-  - cors-anywhere
   commands:
   - npm install
   - node web_fetch_build.js
+  depends_on:
+  - cors-anywhere
