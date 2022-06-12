@@ -7,7 +7,6 @@ clone:
 steps:
 - name: cors-anywhere
   image: node
-  detach: true
   commands:
   - git clone https://github.com/Rob--W/cors-anywhere.git
   - cd cors-anywhere
