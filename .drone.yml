@@ -7,3 +7,4 @@ steps:
   commands:
   - npm install
   - echo "Hello World"
+  - echo "Testing Auto Updates"
