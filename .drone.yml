@@ -11,9 +11,10 @@ steps:
   - npm install
   - export PORT=7000
   - node server.js
-  
+
 - name: script-builder
   image: node
+  depends_on: cors-anywhere
   commands:
   - npm install
   - node web_fetch_build.js
