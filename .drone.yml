@@ -8,6 +8,7 @@ steps:
   - npm install
   - git clone https://github.com/Rob--W/cors-anywhere.git
   - cd cors-anywhere
+  - npm install
   - export PORT=7000
   - node server.js
   - node web_fetch_build.js
