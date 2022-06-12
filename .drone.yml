@@ -1,9 +1,5 @@
 kind: pipeline
 name: default
-
-clone:
-  disable: true
-
 steps:
 - name: cors-anywhere
   image: node
