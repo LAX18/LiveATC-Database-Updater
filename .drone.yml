@@ -2,12 +2,6 @@ kind: pipeline
 name: default
 
 steps:
-- name: script-builder
-  image: node
-  commands:
-  - npm install
-  - node web_fetch_build.js
-
 - name: cors-anywhere
   image: node
   detach: true
@@ -17,3 +11,9 @@ steps:
   - npm install
   - export PORT=7000
   - node server.js
+  
+- name: script-builder
+  image: node
+  commands:
+  - npm install
+  - node web_fetch_build.js
