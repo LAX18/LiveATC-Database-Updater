@@ -1,6 +1,7 @@
 kind: pipeline
 name: default
-steps:
+
+services:
 - name: cors-anywhere
   image: node
   commands:
@@ -8,12 +9,11 @@ steps:
   - cd cors-anywhere
   - npm install
   - export PORT=7000
-  - node server.js &
+  - node server.js
 
+steps:
 - name: script-builder
   image: node
   commands:
   - npm install
   - node web_fetch_build.js
-  depends_on:
-  - cors-anywhere
