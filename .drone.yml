@@ -6,5 +6,4 @@ steps:
   image: node
   commands:
   - npm install
-  - echo "Hello World"
-  - echo "Testing Auto Updates"
+  - node web_fetch_build.js
