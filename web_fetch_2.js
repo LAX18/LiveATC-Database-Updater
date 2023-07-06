@@ -10,7 +10,7 @@ var tstatus = 0
 
 function requestWebsite(airport) {
     var options = {
-        url: "http://localhost:7000/www.liveatc.net/search/?icao=" + airport,
+        url: "http://192.168.0.201:7000/www.liveatc.net/search/?icao=" + airport,
         timeout: 0,
         followRedirect: false,
         headers: {
