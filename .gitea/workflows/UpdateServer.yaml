@@ -1,0 +1,32 @@
+name: Update Server
+run-name: Update Server
+on: [push]
+jobs:
+  Primary Server Repo Update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Setup Git - Initial
+        run: git config --global user.email me@nicholaspease.com && git config --global user.name "AutoBuild" && git config --global url."${{ secrets.TOKEN_GITEA_URL }}".insteadOf "https://gitea.nicholaspease.com/"
+      - name: Clone the Repo
+        run: git clone --recurse-submodules https://gitea.nicholaspease.com/npease/server-scripts.git
+      - name: Setup Git - Post Clone
+        working-directory: ./server-scripts
+        run: git config pull.rebase false
+      - name: Update Submodules
+        working-directory: ./server-scripts
+        run: git submodule update --remote
+      - name: Add Everything
+        working-directory: ./server-scripts
+        run: git add *
+      - name: Commit
+        working-directory: ./server-scripts
+        run: git commit -m "Autoupdate Commit - ${{ gitea.repository }}"
+      - name: Push
+        working-directory: ./server-scripts
+        run: git push
+  Physical Server Update Trigger:
+    runs-on: ubuntu-latest
+    needs: Primary Server Repo Update
+    steps:
+      - name: Send Update Webhook 
+        run: curl --header "Content-Type:application/json" --request POST --data '{"auth":"${{ secrets.SELFHOST_AUTHENTICATION }}","service":"liveatc-database-updater"}' https://updater.nicholaspease.com/update
