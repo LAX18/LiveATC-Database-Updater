@@ -55,6 +55,7 @@ function parseData(body, airport) {
                 n = 0
                 json[airport_json[airport].state].airports[airport].feeds = {}
                 json[airport_json[airport].state].airports[airport].name = airport_json[airport].name
+                json[airport_json[airport].state].airports[airport].location = airport_json[airport].city
                 feedName.each(function () {
                     let title = a(this).find("strong").text();
                     json[airport_json[airport].state].airports[airport].feeds[n] = {}
